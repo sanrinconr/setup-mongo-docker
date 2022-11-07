@@ -1,0 +1,24 @@
+use admin
+db.createUser(
+  {
+     user: "root",
+     pwd: "secret",
+     roles:["root"],
+     passwordDigestor:"server"
+  }
+);  
+
+use photos
+db.createUser(
+   {
+      user: "photos",
+      pwd: "secretpassword",
+      roles:[
+         {
+            role:"readWrite",
+            db:"photos"
+         }
+      ],
+      passwordDigestor:"server"
+   }
+);
